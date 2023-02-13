@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Aşk Sayar</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <style>
+    html,
+    body {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .containerr {
+      display: flex;
+      height: 100%;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      animation: 1.5s ease 0s infinite pulse;
+    }
+
+    #box {
+      height: 60%;
+      width: 33%;
+      max-height: 400px;
+    }
+
+    #heart {
+      height: 100%;
+      margin-left: auto;
+      animation: 1.5s ease 0s infinite beat;
+
+    }
+
+    @keyframes beat {
+
+      0%,
+      50%,
+      100% {
+        transform: scale(1, 1);
+      }
+
+      30%,
+      80% {
+        transform: scale(0.92, 0.95);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      50%,
+      100% {
+        background: #fee;
+      }
+
+      30%,
+      80% {
+        background: #fff;
+      }
+    }
+  </style>
+
+  <html>
+
+  <head>
+
+  </head>
+
+
+
+  <div class="containerr">
+    <div class="row"></div>
+    <div id="box">
+      <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 497 470" height="80%" id="heart">
+        <path
+          d="M140 20C73 20 20 74 20 140c0 135 136 170 228 303 88-132 229-173 229-303 0-66-54-120-120-120-48 0-90 28-109 69-19-41-60-69-108-69z"
+          stroke-width="20" fill="none" />
+        <defs>
+          <radialGradient class="elapsedTime " id="radialGradient" cx="50%" cy="50%" r="100%"
+            gradientUnits="objectBoundingBox">
+            <stop offset="1%" style="stop-color:rgb(255, 150, 150); stop-opacity:1"></stop>
+            <stop offset="90%" style="stop-color:rgb(255, 0, 0); stop-opacity:1"></stop>
+            <stop offset="100%" style="stop-color:rgb(208, 46, 46); stop-opacity:1"></stop>
+          </radialGradient>
+        </defs>
+        <style type="text/css">
+          #heart {
+            stroke: url(#radialGradient)
+          }
+        </style>
+      </svg>
+      <div class="row">
+        <div class="col">
+          <div id="result1"></div>
+        </div>
+        <div class="col">
+          <div id="result2"></div>
+        </div>
+      </div>
+
+      
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <script>
+    var startDate = new Date("December 6, 2022");
+    var currentDate = new Date();
+    var diffInMilliseconds = currentDate - startDate;
+    var diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+    //document.write("Geçen gün sayısı: " + diffInDays + " gün");
+    document.getElementById("result1").innerHTML = "Geçen gün sayısı: " + diffInDays ;
+
+    var startDate = new Date("December 6, 2022");
+    var currentDate = new Date();
+    var diffInMilliseconds = currentDate - startDate;
+    var diffInDays = Math.floor(diffInMilliseconds / (1000 * 60 * 60 * 24));
+    var diffInWeeks = Math.floor(diffInDays / 7);
+    var weekdays = ["Pazar", "Pazartesi", "Salı", "Çarşamba", "Perşembe", "Cuma", "Cumartesi"];
+    var startWeekday = weekdays[startDate.getDay()];
+    var weeksSinceStart = 0;
+
+    for (var i = 0; i <= diffInDays; i++) {
+      var day = new Date(startDate.getTime() + i * (1000 * 60 * 60 * 24));
+      if (day.getDay() === 2) {
+        weeksSinceStart++;
+      }
+    }
+
+    document.getElementById("result2").innerHTML = "Geçen salı sayısı: "+ (weeksSinceStart-1) ;
+
+
+
+
+
+  </script>
+
+
+
+
+
+  </html>
+
+
+</html>
